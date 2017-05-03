@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>test for this</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <script type="text/javascript">
+        // 1,作为对象的方法调用，当函数作为对象的方法被调用时， this 指向该对象
+        var obj = {
+            a: 1,
+            getA: function() {
+                // 输出 true
+                console.log(this === obj);
+                // 输出 1
+                console.log(this.a);
+            }
+        };
+        obj.getA();
+
+        // 2,作为普通函数调用，当函数不作为对象的属性被调用时，也就是普通函数时 this 总是指向全局对象，在浏览器里这个全局对象是 window 对象；
+        window.name = 'globalName';
+        var getName = function() {
+            return this.name;
+        };
+        // 输出 globalName
+        console.log(getName());
+        // 在 ECMAScript5 的 严格模式下，这种情况的 this 已经被规定不会指向全局对象，而是 undefined
+        function func(params) {
+            "use strict"
+            // 输出 undefined
+            console.log(this);
+        }
+        func();
+        // 3,构造器调用，通常情况下构造器里的 this 指向返回的这个对象； 如：
+        var MyClass = function() {
+            this.name = "wsq";
+        };
+
+        var obj = new MyClass();
+        // 输出 wsq
+        console.log(obj.name);
+        // 但如果构造器显式的返回了一个 object 类型的对象，那么运算结果会返回这个对象，而不是我们期待的 this，如：
+        var MyClass2 = function() {
+            return {
+                name: "zbe"
+            }
+        };
+        var obj2 = new MyClass2();
+        // 输出 zbe
+        console.log(obj2.name);
+
+        // 4, Function.prototype.call 或 Function.prototype.apply 调用， 可以动态传入函数的 this
+        var o = {
+            name: "wsq",
+            getName: function() {
+                return this.name;
+            }
+        };
+        var o2 = {
+            name: "zbe"
+        };
+        // 输出 wsq
+        console.log(o.getName());
+        // 输出 zbe
+        console.log(o.getName.call(o2));
+
+    </script>
+</body>
+
+</html>
