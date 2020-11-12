@@ -1,8 +1,8 @@
 export default function(){
-  let env:object = {}
-  let user:object = {}
-  let lang:object = {}
-  let menu:Array<object> = []
+  let env = {}
+  let user = {}
+  let lang = {}
+  let menu = []
 
   return {
     getEnv(){

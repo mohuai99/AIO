@@ -22,6 +22,10 @@
   "homepage": "https://github.com/mohuai99/AIO#readme",
   "devDependencies": {
     "rollup": "^2.33.1",
+    "rollup-plugin-babel": "^2.7.1",
+    "rollup-plugin-commonjs": "^8.0.2",
+    "rollup-plugin-json": "^4.0.0",
+    "rollup-plugin-node-resolve": "^3.0.0",
     "ts-loader": "^8.0.11",
     "typescript": "^4.0.5",
     "webpack": "^5.4.0",

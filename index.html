@@ -6,9 +6,20 @@
   <title>aio</title>
 </head>
 <body>
-  <script src="./dist/bundle.js"></script>
+  <script src="./dist/aio.js"></script>
   <script >
+    var MY_TOPIC = 'test';
+    aio.message.subscribe(MY_TOPIC, function (msg, data) {
+      alert(`hello - ${data}`)
+      console.log(msg, data)
+    });
+    aio.message.publishSync(MY_TOPIC, 'world');
+
     console.log(aio)
   </script>
+  <!-- <script type="module" >
+    import Aio from './dist/aio.js'
+    console.log(Aio)
+  </script> -->
 </body>
 </html>

@@ -1,4 +1,7 @@
 import json from 'rollup-plugin-json'
+import babel from 'rollup-plugin-babel'
+import resolve from 'rollup-plugin-node-resolve'
+import commonjs from 'rollup-plugin-commonjs'
 import path from 'path'
 
 export default {
@@ -6,7 +9,7 @@ export default {
     output: {
         name: 'aio',
         file: `./dist/aio.js`,
-        format: 'es',
+        format: 'umd',
         // amd: {
         //     id:'aio'
         //     // define: 'def'
@@ -19,7 +22,16 @@ export default {
     //     path.resolve( './src/foo.js' ),
     //     path.resolve( './src/bar.js' )
     // ],
-    plugins:[json()]
+    plugins:[
+        resolve({
+            browser: true,
+        }),
+        commonjs(),
+        babel({
+            exclude: 'node_modules/**',
+        }),
+        json()
+    ]
     
 };
 

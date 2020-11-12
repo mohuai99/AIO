@@ -1,23 +1,20 @@
-import Base from './base/index'
+import Base from './base/index.js'
+import Message from './message/index.js'
 
 class Aio {
-  versionNumber: string
   get version(){
-    return this.versionNumber || 'v0.0.1'
+    return 'v0.0.1'
   }
-  set version(v: string) {
-    this.versionNumber = v
-  }
+
   get base(){
     return Base()
+  }
+
+  get message(){
+    return Message()
   }
 }
 
 const AIO = new Aio()
-
-declare global {
-  interface Window { aio: any; }
-}
-
 window.aio = AIO || {};
-export default Aio
+export default AIO
