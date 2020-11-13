@@ -10,10 +10,10 @@
   <script >
     var MY_TOPIC = 'test';
     aio.message.subscribe(MY_TOPIC, function (msg, data) {
-      alert(`hello - ${data}`)
+      // alert(`hello - ${data}`)
       console.log(msg, data)
     });
-    aio.message.publishSync(MY_TOPIC, 'world');
+    aio.message.publish(MY_TOPIC, 'world');
 
     console.log(aio)
   </script>
