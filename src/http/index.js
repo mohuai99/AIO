@@ -22,7 +22,7 @@ export default function(instance, message){
       }, 2000)
     }
 
-    // todo: 想根据业务需要，对响应结果预先处理的，都放在这里
+    // todo: 想根据业务需要，对响应结果预先处理的，都放在这里1
     return response;
   }, (err) => {
     if (err.response) { // 响应错误码处理
