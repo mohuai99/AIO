@@ -1,6 +1,5 @@
 import Base from './base/index.js'
 import Message from './message/index.js'
-import Http from './http/index.js'
 import Common from './common/index.js'
 import Service from './service/index.js'
 
@@ -17,16 +16,12 @@ class Aio {
     return Common
   }
 
-  get http(){
-    return Http()
-  }
-
   get message(){
     return Message()
   }
 
   get service(){
-    return Service()
+    return new Service()
   }
 }
 

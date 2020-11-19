@@ -11,6 +11,7 @@
     var MY_TOPIC = 'test';
     aio.message.subscribe(MY_TOPIC, function (msg, data) {
       // alert(`hello - ${data}`)
+      aio.service.settings.env = 'production'
       console.log(msg, data)
     });
     aio.message.publish(MY_TOPIC, 'world');
